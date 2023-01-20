@@ -14,14 +14,14 @@ const Navbar = () => {
       <ul>
         {/* Home */}
         <li>
-          <NavLink to='/'>
+          <NavLink to='/' className={({isActive}) => (isActive ? styles.active : '')}>
             Home
           </NavLink>
         </li>
 
         {/* About */}
         <li>
-          <NavLink to='/about'>
+          <NavLink to='/about' className={({isActive}) => (isActive ? styles.active : '')}>
             About
           </NavLink>
         </li>
