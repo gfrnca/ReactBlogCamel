@@ -13,24 +13,27 @@ import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 
-
+// Context 
+import { AuthProvider } from './context/AuthContext';
 
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <div className='container'>
-          <Navbar />
+      <AuthProvider>
+        <BrowserRouter>
+          <div className='container'>
+            <Navbar />
 
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
