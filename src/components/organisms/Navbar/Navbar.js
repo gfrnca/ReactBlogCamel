@@ -25,6 +25,13 @@ const Navbar = () => {
             About
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/login'>
+            <button className='btn-cta'>
+              Join
+            </button>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )
