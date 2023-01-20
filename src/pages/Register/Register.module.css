@@ -1,0 +1,47 @@
+.register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.register form {
+  padding: 60px 90px;
+  width: auto;
+  border-radius: 4px;
+  border: 1px solid rgb(207, 207, 207);
+}
+
+.register form h1 {
+  margin: 0px;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.register form h1 span {
+  color: #3a6dd4;
+}
+
+.register form button {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.inputs label {
+  margin-bottom: 10px;
+}
+
+.inputs input {
+  margin-bottom: 30px;
+}
+
+.inputs input:last-child {
+  margin-bottom: 0px;
+}
