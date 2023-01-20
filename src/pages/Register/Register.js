@@ -1,5 +1,6 @@
 // General
 import { useState, useEffect } from 'react';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
 // CSS 
 import styles from './Register.module.css'
@@ -13,7 +14,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const { createUser, error: authError, loading} = useAuthentication();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError(''); 
@@ -29,9 +32,16 @@ const Register = () => {
       return
     }
 
-    console.log(user);
+    const res = await createUser(user)
+
+    console.log(res);
   }
 
+  useEffect(() => {
+    if(authError) {
+      setError(authError)
+    }
+  }, [authError])
 
   return (
     <>
@@ -41,7 +51,7 @@ const Register = () => {
           <p>Create your account and share ideas</p>
 
           {error && (
-            <p className='error'>Passwords don't match</p>
+            <p className='error'>{error}</p>
           )}
 
           <div className={styles.inputs}>
