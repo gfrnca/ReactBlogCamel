@@ -17,6 +17,8 @@ const Register = () => {
   const { createUser, error: authError, loading} = useAuthentication();
 
   const handleSubmit = async (e) => {
+    console.log(loading)
+
     e.preventDefault();
 
     setError(''); 
@@ -49,10 +51,6 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <h1>Start your <span>journey</span></h1>
           <p>Create your account and share ideas</p>
-
-          {error && (
-            <p className='error'>{error}</p>
-          )}
 
           <div className={styles.inputs}>
             {/* Display name */}
@@ -104,9 +102,12 @@ const Register = () => {
             />
           </div>
 
-          <button className='btn-cta'>
-            Let's start
-          </button>
+          {!loading && <button className='btn-cta'>Let's start</button>}
+          {loading && <button className='btn-cta' disabled>Wait...</button>}
+
+          {error && (
+            <p className='error'>{error}</p>
+          )}
 
         </form>
       </div>

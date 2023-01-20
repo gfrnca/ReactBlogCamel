@@ -43,6 +43,8 @@ export const useAuthentication = () => {
         displayName: data.displayName
       })
 
+      setLoading(false);
+
       return user
 
     } catch (error) {
@@ -61,8 +63,6 @@ export const useAuthentication = () => {
 
       setError(systemErrorMessage);
     }
-
-    setLoading(false);
   };
 
   useEffect(() => {
