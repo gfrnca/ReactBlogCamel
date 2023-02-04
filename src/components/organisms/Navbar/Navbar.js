@@ -1,10 +1,16 @@
 // General
 import { NavLink } from 'react-router-dom';
 
+import { useAuthentication } from '../../../hooks/useAuthentication';
+
+import { useAuthValue } from '../../../context/AuthContext';
+
 // CSS
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const {user} = useAuthValue();
+
   return (
     <nav className={styles.navbar}>
       <NavLink className={styles.brand} to='/'>
@@ -26,11 +32,17 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/login'>
-            <button className='btn-cta'>
-              Join
-            </button>
-          </NavLink>
+
+        {!user && (
+          <>
+            <NavLink to='/login'>
+              <button className='btn-cta'>
+                Join
+              </button>
+            </NavLink>
+          </>
+        )}
+
         </li>
       </ul>
     </nav>
