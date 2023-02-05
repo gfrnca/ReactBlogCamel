@@ -1,31 +1,32 @@
 // General
-import { db } from '../firebase/config';
+import { db } from "../firebase/config";
 
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
-  signOut
-} from 'firebase/auth';
+  signOut,
+} from "firebase/auth";
 
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 
 export const useAuthentication = () => {
-  const [error , setError] = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
   // Cleanup - Deal with memory leaks
-  const [canceled , setCancelled] = useState(false);
+  const [canceled, setCancelled] = useState(false);
 
   const auth = getAuth();
 
   const checkIfIsCancelled = () => {
-    if(canceled) {
+    if (canceled) {
       return;
     }
-  }
+  };
 
+  // Register
   const createUser = async (data) => {
     checkIfIsCancelled();
 
@@ -33,46 +34,53 @@ export const useAuthentication = () => {
     setError(null);
 
     try {
-      const {user} = await createUserWithEmailAndPassword(
+      const { user } = await createUserWithEmailAndPassword(
         auth,
         data.email,
-        data.password,
+        data.password
       );
 
       await updateProfile(user, {
-        displayName: data.displayName
-      })
+        displayName: data.displayName,
+      });
 
       setLoading(false);
 
-      return user
-
+      return user;
     } catch (error) {
       console.log(error.message);
-      console.log(typeof error.message)
+      console.log(typeof error.message);
 
       let systemErrorMessage;
 
-      if(error.message.includes('Password')) {
+      if (error.message.includes("Password")) {
         systemErrorMessage = "Password must contains at least 6 characters";
-      } else if(error.message.includes('email-aready')) {
-        systemErrorMessage = "E-mail already used"
+      } else if (error.message.includes("email-aready")) {
+        systemErrorMessage = "E-mail already used";
       } else {
-        systemErrorMessage = "An error ocurred, try again later"
+        systemErrorMessage = "An error ocurred, try again later";
       }
 
       setError(systemErrorMessage);
     }
   };
 
+  // Logout
+  const logout = () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  };
+
   useEffect(() => {
-    return() => setCancelled(true);
-  })
+    return () => setCancelled(true);
+  });
 
   return {
     auth,
     createUser,
     error,
     loading,
-  }
-}
+    logout,
+  };
+};
