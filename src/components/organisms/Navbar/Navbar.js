@@ -31,19 +31,38 @@ const Navbar = () => {
             About
           </NavLink>
         </li>
-        <li>
 
         {!user && (
           <>
-            <NavLink to='/login'>
-              <button className='btn-cta'>
-                Join
-              </button>
-            </NavLink>
+            <li>
+              <NavLink to='/login'>
+                <button className='btn-cta'>
+                  Join
+                </button>
+              </NavLink>
+            </li>
           </>
         )}
 
-        </li>
+        {user && (
+          <>
+            <li>
+              <NavLink to='/posts/create'>
+                <button className='btn-cta'>
+                  Create post
+                </button>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to='/dashboard'>
+                <button className='btn-cta'>
+                  Dashboard
+                </button>
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   )
