@@ -17,12 +17,14 @@
 .register form h1 {
   margin: 0px;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
 .register form p {
+  text-align: center;
   color: rgb(86, 86, 86);
+  margin-bottom: 40px;
 }
 
 .register form h1 span {
