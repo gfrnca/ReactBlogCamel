@@ -4,7 +4,7 @@
 }
 
 body {
-  background: #F6FCFF;
+  background: #f0f2f5;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +17,8 @@ a {
 
 /* Buttons */
 .btn-cta {
-  padding: 12px 30px;
+  width: 100%;
+  padding: 15px;
   background: #3a6dd4;
   border: none;
   color: white;
@@ -31,16 +32,15 @@ a {
   background: #2e65d1;
 }
 
-.input-data {
-  padding: 8px;
+.data-input {
+  padding: 13px;
   border-radius: 4px;
   border: none;
-  outline: 1px solid rgb(170, 170, 170);
+  outline: 1px solid #dddfe2;
   transition: 0.1s all;
 }
 
-.input-data:focus {
-  padding: 10px 10px;
+.data-input:focus {
   outline: 1px solid #2e65d1;
 }
 

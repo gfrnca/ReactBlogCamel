@@ -57,7 +57,7 @@ const Register = () => {
             {/* Display name */}
             <label>Username</label>
             <input 
-              className='input-data' 
+              className='data-input' 
               type="text"
               name="displayName" 
               placeholder="How do you want to be called?"
@@ -69,7 +69,7 @@ const Register = () => {
             {/* E-mail */}
             <label>E-mail</label>
             <input 
-              className='input-data' 
+              className='data-input' 
               type="e-mail" 
               name="email"  
               placeholder="Type your best e-mail here"
@@ -81,7 +81,7 @@ const Register = () => {
             {/* Password */}
             <label>Password</label>
             <input 
-              className='input-data' 
+              className='data-input' 
               type="password" 
               name="confirmPassword"  
               placeholder="Your super strong password here"
@@ -93,7 +93,7 @@ const Register = () => {
             {/* Confirm password */}
             <label>Confirm your password</label>
             <input 
-              className='input-data' 
+              className='data-input' 
               type="password" 
               name="password" 
               placeholder="Make sure you don't forget it"

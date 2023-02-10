@@ -46,7 +46,7 @@ const Login = () => {
             {/* E-mail */}
             <label>E-mail</label>
             <input
-              className="input-data"
+              className="data-input"
               type="e-mail"
               name="email"
               placeholder="The e-mail that you used to create this account"
@@ -58,7 +58,7 @@ const Login = () => {
             {/* Password */}
             <label>Password</label>
             <input
-              className="input-data"
+              className="data-input"
               type="password"
               name="confirmPassword"
               placeholder="Whats your best secret?"
