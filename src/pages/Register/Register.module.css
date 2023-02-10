@@ -27,6 +27,10 @@
   margin-bottom: 40px;
 }
 
+.register form p span {
+  color: #3a6dd4;
+}
+
 .register form h1 span {
   color: #3a6dd4;
 }

@@ -1,6 +1,7 @@
 // General
 import { useState, useEffect } from 'react';
 import { useAuthentication } from '../../hooks/useAuthentication';
+import { NavLink } from "react-router-dom";
 
 // CSS 
 import styles from './Register.module.css'
@@ -108,6 +109,14 @@ const Register = () => {
           {error && (
             <p className='error'>{error}</p>
           )}
+
+          <p>
+            Already have an account?
+            <NavLink to="/login">
+              <span> Click here </span>
+            </NavLink>
+            to sign in.
+          </p>
 
         </form>
       </div>
