@@ -43,7 +43,7 @@ const Navbar = () => {
           <>
             <li>
               <NavLink to="/login">
-                <button className="btn-cta">Join</button>
+                <button className="btn-cta">Login</button>
               </NavLink>
             </li>
           </>
